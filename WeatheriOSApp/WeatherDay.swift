@@ -19,6 +19,7 @@ class WeatherDay: WeatherModel {
       self.highTemp = highTemp
       self.lowTemp = lowTemp
       self.hours = hours;
+      
    }
    
 }

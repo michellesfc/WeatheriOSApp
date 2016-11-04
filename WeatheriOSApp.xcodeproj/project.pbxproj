@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60291491DCC19B900954CEB /* HoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60291481DCC19B900954CEB /* HoursViewController.swift */; };
 		B617EDCA1DCBA72200E8CE34 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B617EDC91DCBA72200E8CE34 /* weathericons-regular-webfont.ttf */; };
 		B617EDCC1DCBCF3900E8CE34 /* WeatherBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617EDCB1DCBCF3900E8CE34 /* WeatherBuilder.swift */; };
+		B617EDCE1DCBD43100E8CE34 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617EDCD1DCBD43100E8CE34 /* WeatherCell.swift */; };
 		B64286F91DC3C6C100C4F6B9 /* WeatherDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64286F81DC3C6C100C4F6B9 /* WeatherDay.swift */; };
 		B64286FB1DC3C71800C4F6B9 /* WeatherHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64286FA1DC3C71800C4F6B9 /* WeatherHour.swift */; };
 		B65E350F1DC260EF0073B4F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65E350E1DC260EF0073B4F7 /* AppDelegate.swift */; };
@@ -39,8 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60291481DCC19B900954CEB /* HoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoursViewController.swift; path = WeatheriOSApp/HoursViewController.swift; sourceTree = "<group>"; };
 		B617EDC91DCBA72200E8CE34 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "weathericons-regular-webfont.ttf"; path = "../../../weather-icons-master/font/weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		B617EDCB1DCBCF3900E8CE34 /* WeatherBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherBuilder.swift; path = WeatheriOSApp/WeatherBuilder.swift; sourceTree = "<group>"; };
+		B617EDCD1DCBD43100E8CE34 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		B64286F81DC3C6C100C4F6B9 /* WeatherDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherDay.swift; path = WeatheriOSApp/WeatherDay.swift; sourceTree = "<group>"; };
 		B64286FA1DC3C71800C4F6B9 /* WeatherHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherHour.swift; path = WeatheriOSApp/WeatherHour.swift; sourceTree = "<group>"; };
 		B65E350B1DC260EF0073B4F7 /* WeatheriOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatheriOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,7 @@
 		B65E35021DC260EF0073B4F7 = {
 			isa = PBXGroup;
 			children = (
+				B60291481DCC19B900954CEB /* HoursViewController.swift */,
 				B617EDC81DCBA70D00E8CE34 /* Resources */,
 				B66F2A571DC3BE9F004F0C0A /* WeatherModel.swift */,
 				B617EDCB1DCBCF3900E8CE34 /* WeatherBuilder.swift */,
@@ -122,6 +127,7 @@
 			children = (
 				B65E350E1DC260EF0073B4F7 /* AppDelegate.swift */,
 				B65E35101DC260EF0073B4F7 /* ViewController.swift */,
+				B617EDCD1DCBD43100E8CE34 /* WeatherCell.swift */,
 				B65E35121DC260EF0073B4F7 /* Main.storyboard */,
 				B65E35151DC260EF0073B4F7 /* Assets.xcassets */,
 				B65E35171DC260EF0073B4F7 /* LaunchScreen.storyboard */,
@@ -287,8 +293,10 @@
 				B64286FB1DC3C71800C4F6B9 /* WeatherHour.swift in Sources */,
 				B65E35111DC260EF0073B4F7 /* ViewController.swift in Sources */,
 				B66F2A581DC3BE9F004F0C0A /* WeatherModel.swift in Sources */,
+				B60291491DCC19B900954CEB /* HoursViewController.swift in Sources */,
 				B65E350F1DC260EF0073B4F7 /* AppDelegate.swift in Sources */,
 				B64286F91DC3C6C100C4F6B9 /* WeatherDay.swift in Sources */,
+				B617EDCE1DCBD43100E8CE34 /* WeatherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

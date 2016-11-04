@@ -87,7 +87,7 @@ class WeatherBuilder {
       let windDirection = (hourJSON?["wdir"] as! [String: Any])["dir"] as! String?
       let windChill = Int((hourJSON?["windchill"] as! [String: String])["english"]!)
       let probOfPrecip = Int(hourJSON?["pop"] as! String)
-      
+      //print(hour!)
       return WeatherHour(city: nil, conditions: conditions, conditionImg: conditionImg, temperature: temperature, dayOfWeek: dayOfWeek, windSpeed: windSpeed, windDirection: windDirection, probOfPrecip: probOfPrecip,  date: date, hour: hour, UVI: UVI, heatIndex: heatIndex, windChill: windChill)
    }
  
@@ -103,19 +103,45 @@ class WeatherBuilder {
       let hourlyForecast = getJsonResponse(url: apiHourly10day)?["hourly_forecast"] as! [[String: Any]]
       
       result.append(createCurrentDay(currentForecast: day[0]))
-      
-      var i = hourlyForecast.count - 1
+   
       for index in 1...9 {
          result.append(createWeatherDay(dayJSON: day[index]))
-         var h = 0;
-         
-         while(h < 24 && i > 0) {
-            (result[index].hours!).append(createWeatherHour(hourJSON: hourlyForecast[i]))
-            h += 1
-            i -= 1
-         }
       }
       
+      
+      var firstH = 24 - Int((hourlyForecast[0]["FCTTIME"] as! [String: Any])["hour"] as! String)!
+      
+      for hour in 0...firstH-1 {
+         (result[0].hours!).append(createWeatherHour(hourJSON: hourlyForecast[hour]))
+      }
+      
+      var c = 0;
+      for dayIdx in 1...9 {
+         c = 0
+         while(c < 24) {
+            (result[dayIdx].hours)!.append(createWeatherHour(hourJSON: hourlyForecast[firstH]))
+            firstH += 1
+            c += 1
+         }
+         
+      }
+      
+      /*
+       
+      var hoursIdx = hourlyForecast.count - 1
+      var dayIdx = 9;
+       
+      var h = 23
+      while(hoursIdx >= 0 && dayIdx >= 0) {
+         //((result[dayIdx].hours))!.insert(createWeatherHour(hourJSON: hourlyForecast[hoursIdx]), at: h)
+         print("test: \(h) \(hoursIdx) \(dayIdx)")
+         h -= 1
+         hoursIdx -= 1
+         if(h == 0) {
+            dayIdx -= 1
+            h = 23
+         }
+      }*/
       return result
    }
    
