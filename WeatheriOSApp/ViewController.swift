@@ -5,11 +5,12 @@
 //  Created by Michelle Gu on 10/27/16.
 //  Copyright © 2016 Michelle Gu. All rights reserved.
 //
-//6c0006a0992b8fc9
+//
 
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+   
    @IBOutlet weak var cityLabel: UILabel!
    @IBOutlet weak var weekDayLabel: UILabel!
    @IBOutlet weak var tempLabel: UILabel!
@@ -23,33 +24,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
    var weatherObjects:[WeatherDay] = []
    
    func setCurrentDayLabels() {
-      let test:WeatherBuilder = WeatherBuilder();
-      weatherObjects = test.createWeatherObjects();
+      
       let currentWeather:WeatherDay = weatherObjects[0]
+      
+      //Setting the texts for the labels
       cityLabel.text = currentWeather.city
       weekDayLabel.text = currentWeather.dayOfWeek
       tempLabel.text = String(describing: currentWeather.temperature!) + "°F"
       conditionLabel.text = currentWeather.conditions
-      
       highLowTempLabel.text = "\u{f055}   " + currentWeather.highTemp! + "°F / " + currentWeather.lowTemp! + "°F"
-      
       windLabel.text = "\u{f050} " + String(describing: currentWeather.windSpeed!) + " mph / " + currentWeather.windDirection!
-    
-      weatherIcon.text = " \u{F002}"
+      weatherIcon.text = currentWeather.conditionImg
    }
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      let builder:WeatherBuilder = WeatherBuilder();
+      weatherObjects = builder.createWeatherObjects();
+      
       setCurrentDayLabels()
-      print("in main view")
-      /*
-      for w in weatherObjects {
-         for h in w.hours! {
-            print(h.hour!)
-         }
-         print("\n\n\n")
-      }*/
    }
    
    override func didReceiveMemoryWarning() {
@@ -68,17 +62,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
    func collectionView(_ collectionView: UICollectionView,
                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
+      
       let weatherDay = weatherObjects[indexPath.row]
       cell.weekdayLabel.text = weatherDay.dayOfWeek
-      cell.iconLabel.text = "\u{F002}"
+      cell.iconLabel.text = weatherDay.conditionImg!
       cell.popLabel.text = "\u{f078} " + String(describing: weatherDay.probOfPrecip!) + "%"
       cell.highLabel.text = "\u{f058} " + weatherDay.highTemp! + "°F"
       cell.lowLabel.text = "\u{f044} " + weatherDay.lowTemp! + "°F"
+      cell.conditionLabel.text = weatherDay.conditions!
       return cell
    }
    
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if(segue.identifier == "DayToHourView") {
+         let destVC = segue.destination as! HoursViewController
+         
+         let selectedIndexPath = day10Forecast.indexPathsForSelectedItems![0].item
+         
+         //pass the hours array for the selected day to the destination view controller
+         destVC.hours = weatherObjects[selectedIndexPath].hours!
+      }
+   }
+
+   
    @IBAction func backToMainUnwind(segue:UIStoryboardSegue) {
-      
    }
 
 }

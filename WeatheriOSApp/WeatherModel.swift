@@ -20,6 +20,9 @@ class WeatherModel {
    var probOfPrecip:Int?
    var date: String?
    
+   init() {
+   }
+   
    init(city: String?, conditions:String?, conditionImg:String?, temperature:Int?, dayOfWeek:String?, windSpeed:Int?, windDirection:String?, probOfPrecip:Int?, date: String?) {
       
       self.city = city;

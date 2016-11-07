@@ -14,6 +14,7 @@ class WeatherDay: WeatherModel {
    var lowTemp: String?
    var hours: [WeatherHour]?
    
+   
    init(city: String?, conditions:String?, conditionImg:String?, temperature:Int?, dayOfWeek:String?, windSpeed:Int?, windDirection:String?, probOfPrecip:Int?, date: String?, highTemp: String?, lowTemp:String?, hours: [WeatherHour]?) {
       super.init(city: city, conditions: conditions, conditionImg: conditionImg, temperature: temperature, dayOfWeek: dayOfWeek, windSpeed: windSpeed, windDirection: windDirection, probOfPrecip: probOfPrecip,  date: date)
       self.highTemp = highTemp

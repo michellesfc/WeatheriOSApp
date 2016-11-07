@@ -9,12 +9,16 @@
 import Foundation
 
 class WeatherHour: WeatherModel {
-   var hour:Int?
+   var hour:String?
    var UVI: Int?
    var heatIndex: Int?
    var windChill: Int?
    
-   init(city: String?, conditions:String?, conditionImg:String?, temperature:Int?, dayOfWeek:String?, windSpeed:Int?, windDirection:String?, probOfPrecip:Int?, date: String?, hour: Int?, UVI: Int?, heatIndex:Int?, windChill:Int?) {
+   override init() {
+      super.init()
+   }
+   
+   init(city: String?, conditions:String?, conditionImg:String?, temperature:Int?, dayOfWeek:String?, windSpeed:Int?, windDirection:String?, probOfPrecip:Int?, date: String?, hour: String?, UVI: Int?, heatIndex:Int?, windChill:Int?) {
       super.init(city: city, conditions: conditions, conditionImg: conditionImg, temperature: temperature, dayOfWeek: dayOfWeek, windSpeed: windSpeed, windDirection: windDirection, probOfPrecip: probOfPrecip,  date: date)
       self.hour = hour
       self.UVI = UVI
