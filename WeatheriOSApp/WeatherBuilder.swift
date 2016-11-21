@@ -64,7 +64,6 @@ class WeatherBuilder {
       let currentObservation = currentDayJSON!["current_observation"] as! [String : Any]
       let displayLocation = currentObservation["display_location"] as! [String : Any]
       
-      
       let date = currentObservation["observation_time_rfc822"] as! String?
       let city = displayLocation["city"] as! String?
       let conditions = currentObservation["weather"] as! String?
@@ -135,7 +134,6 @@ class WeatherBuilder {
       for index in 1...9 {
          result.append(createWeatherDay(dayJSON: day[index]))
       }
-      
       
       var hoursIdx = 24 - Int((hourlyForecast[0]["FCTTIME"] as! [String: Any])["hour"] as! String)!
       
